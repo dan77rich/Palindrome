@@ -2,22 +2,80 @@
 function getMessage() {
 
     let msg = document.getElementById("txtmessage").value;
-    displayMessage(msg);
+
+    if (msg != '') {
+
+        msg = msg.toUpperCase();
+
+        const regex = /[^a-z0-9]/gi;
+        msg = msg.replace(regex, "");
+
+        let palinObj = reverseMessageB(msg);
+        
+
+        displayMessage(palinObj);
+    } else {
+        alert("You must enter a string");
+
+
+    }
+
+
+}
+
+// function reverseMessageA(msg) {
+//     let revMessage = "";
+//     //decrimenting loop
+//     for (let index = msg.length - 1; index >= 0; index--) {
+
+//         let char = msg[index];
+
+//         revMessage += char;
+
+//     }
+
+//     return revMessage;
+
+// }
+
+function reverseMessageB(msg) {
+
+    let revMessage = "";
+    revMessage = msg.split("").reverse().join("");
+
+
+    if (msg == revMessage) {
+        revMessage = 'It is a palindrome';
+
+    } else {
+        revMessage = 'It is not a palidrome'
+    };
+
+
+    return revMessage;
+
+
+}
+
+function reverseMessageC(originalWord) {
+
+    let revWord = "";
+
+    let returnObj = {};
+
+
+
+
+
+
+    return returnObj
 }
 
 
 // Final Step - view
-function displayMessage(message) {
+function displayMessage(palinObj) {
 
     // <li class="list-group-item">A list item</li>
     element = document.getElementById("results");
-    //next create a new li element 
-    let item = document.createElement("li");
-    //add classes to the li element 
-    item.classList.add("list-group-item")
-    // set the message for the li element
-    item.innerHTML = message;
-    // add the new items to the list
-    element.appendChild(item);
-
+    element.innerHTML = `${palinObj.message}` - ``;
 }
