@@ -11,7 +11,7 @@ function getMessage() {
         msg = msg.replace(regex, "");
 
         let palinObj = reverseMessageB(msg);
-        
+
 
         displayMessage(palinObj);
     } else {
@@ -61,9 +61,19 @@ function reverseMessageC(originalWord) {
 
     let revWord = "";
 
-    let returnObj = {};
+    let returnObj = {
+        message: "",
+        originalWord: originalWord,
+        reversedWord: "",
+        IsPalindrome: false
+    };
 
+    revWord = originalWord.split("").reverse().join("");
 
+    // palindrome check
+    if (originalWord == reWord) {
+        returnObj.message = the word/phrase
+    }
 
 
 
@@ -77,5 +87,5 @@ function displayMessage(palinObj) {
 
     // <li class="list-group-item">A list item</li>
     element = document.getElementById("results");
-    element.innerHTML = `${palinObj.message}` - ``;
+    element.innerHTML = `${palinObj.message}` - `${palinObj}`;
 }
